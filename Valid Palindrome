@@ -1,0 +1,87 @@
+Problem Link -: https://leetcode.com/problems/valid-palindrome/
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Constraints -: Time complexity : O(N)
+               Space Complexity : O(1)
+ ----------------------------------------------------------------------------------------------------------------------------------------------------------------------              
+STEPS -:
+
+1) create two variable left and right to store the first and last index of the string.
+
+                   int left = 0 ;
+                   int right = s.size() - 1 ;
+                   
+2) Run a while loop for left <= right
+                 
+                   while( left <= right )
+                   
+3) Use isalnum() function to check whether s[left] and s[right] are alphanumeric or not 
+
+                  if( !isalnum(s[left]))
+                        left++ ;
+                  else if(!isalnum(s[right]))
+                        right-- ;
+                        
+4) check is tolower(s[left]) is equal to or not to tolower(s[right])
+
+                 else if( tolower(s[left]) != tolower(s[right]))
+                        return false ;
+                        
+5) If none of the above if conditions are true.Then we will increase the left variable and decrease the right variable
+
+                 else
+                 {
+                     left++ ;
+                     right--;
+                 }
+                 
+6) If algorithm reaches to this steps that means that the given string is palindrome.So, we return true.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CODE -:
+
+public:
+    bool isPalindrome(string s) {
+        int left = 0 ; 
+        int right = s.size() - 1 ;
+        
+        while( left <= right)
+        {
+            if( !isalnum(s[left]))
+                left++ ;
+                
+            else if(!isalnum(s[right]))
+                right-- ;
+                
+            else if( tolower(s[left]) != tolower(s[right]))
+                return false ;
+                
+            else
+            {
+                left++ ;
+                right--;
+            }
+        }
+        return true ;
+    }
+};
+
+********************************************************************************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
